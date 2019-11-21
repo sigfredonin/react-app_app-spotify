@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
+import { Link } from 'react-router-dom';
 import UserInfo from '../components/userinfo.js';
 
 class Profile extends Component {
@@ -22,7 +23,9 @@ class Profile extends Component {
   loggedInButtons() {
     return (
       <div className="button-row">
-        <a href="/search" className="btn btn-secondary">Search Spotify</a>
+        <Link to={`/search/${this.state.id}`} >
+          <button className="btn btn-secondary">Search Spotify</button>
+        </Link>
         <a href={`http://localhost:8081/users/logout?id=${this.state.id}`} className="btn btn-secondary">Logout</a>
       </div>
     )
