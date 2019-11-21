@@ -23,7 +23,7 @@ class Profile extends Component {
     return (
       <div className="button-row">
         <a href="http://localhost:8081/spotify/search" className="btn btn-secondary">Search Spotify</a>
-        <a href="http://localhost:8081/users/logout" className="btn btn-secondary">Logout</a>
+        <a href={`http://localhost:8081/users/logout?id=${this.state.id}`} className="btn btn-secondary">Logout</a>
       </div>
     )
   }
