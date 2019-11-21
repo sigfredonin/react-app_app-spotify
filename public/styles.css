@@ -1,0 +1,39 @@
+h3 {
+  color: red
+}
+::-webkit-input-placeholder { /* Chrome */
+  color: rgb(255,128,128);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: red;
+  opacity: 1;
+}
+.narrow-row {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.narrow-desc {
+  margin: 0;
+  padding: 0;
+  padding-left: 0.5rem;
+  border: 0;
+}
+.item-picture {
+  margin: 0;
+  padding: 2px;
+  border: 0;
+}
+.button-row {
+  padding: 4px;
+}
+.btn {
+  margin: 2px;
+}
