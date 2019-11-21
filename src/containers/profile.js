@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
-import UserServices from '../services/userServices';
 import UserInfo from '../components/userinfo.js';
-
-const userServices = new UserServices();
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: props.id
-    };
+    this.getParams = this.getParams.bind(this);
     this.loggedInButtons = this.loggedInButtons.bind(this);
+    const params = this.getParams();
+    this.state = {
+      id: params.id
+    };
   }
 
-  componentDidMount() {
+  getParams() {
     const params = queryString.parse(this.props.location.hash);
     console.log("Profile params: %O", params);
-    userServices.getLoggedInUser(params.id);
+    return params;
   }
 
   loggedInButtons() {
@@ -35,7 +34,7 @@ class Profile extends Component {
         <div className="row mt-5">
           <div className="col-md-10 m-auto">
             <div className="card card-body">
-              <UserInfo className='userinfo' />
+              <UserInfo className='userinfo' id={this.state.id} />
               <this.loggedInButtons />
             </div>
           </div>
