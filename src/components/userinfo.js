@@ -34,7 +34,7 @@ class UserInfo extends Component {
         }
         console.log("UserInfo: user=%O", this.state.user);
       });
-      }
+    }
   }
     
   render () {
