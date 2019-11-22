@@ -11,7 +11,7 @@ class UserServices {
 
   getLoggedInUser(id, done) {
     console.log(`getLoggedInUser, id=${id}`);
-    const userDataURL = 'http://localhost:8081/users/info';
+    const userDataURL = '/users/info';
     Axios.get(userDataURL, { params: { id: id }})
     .then( (response) => {
       console.log("response", response);

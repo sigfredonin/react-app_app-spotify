@@ -26,7 +26,7 @@ class Profile extends Component {
         <Link to={`/search/${this.state.id}`} >
           <button className="btn btn-secondary">Search Spotify</button>
         </Link>
-        <a href={`http://localhost:8081/users/logout?id=${this.state.id}`} className="btn btn-secondary">Logout</a>
+        <a href={`/users/logout?id=${this.state.id}`} className="btn btn-secondary">Logout</a>
       </div>
     )
   }

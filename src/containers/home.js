@@ -21,7 +21,7 @@ class Home extends Component {
                 </h1>
               <p>Log in with Spotify to begin searching ...</p>
               <div className="button-row">
-                <a href="http://localhost:8081/users/spotify" className="btn btn-secondary">
+                <a href="/users/spotify" className="btn btn-secondary">
                     Login with Spotify
                 </a>
               </div>

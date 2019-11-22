@@ -23,7 +23,7 @@ class Search extends Component {
                 <SearchForm id={this.state.id} />
                 <div className="button-row">
                   <a className="btn btn-secondary"
-                    href={`http://localhost:8081/users/logout?id=${this.state.id}`}
+                    href={`/users/logout?id=${this.state.id}`}
                   >
                     Logout
                   </a>
