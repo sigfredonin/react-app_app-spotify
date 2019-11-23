@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
-//import UserServices from '../services/userServices';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: false
-    }
-  }
-
   render() {
     return(
       <div className='home'>
@@ -22,7 +14,7 @@ class Home extends Component {
               <p>Log in with Spotify to begin searching ...</p>
               <div className="button-row">
                 <a href="/users/spotify" className="btn btn-secondary">
-                    Login with Spotify
+                  Login with Spotify
                 </a>
               </div>
             </div>

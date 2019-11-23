@@ -8,10 +8,7 @@ class Profile extends Component {
     super(props);
     this.getParams = this.getParams.bind(this);
     this.loggedInButtons = this.loggedInButtons.bind(this);
-    const params = this.getParams();
-    this.state = {
-      id: params.id
-    };
+    this.id = this.getParams().id;
   }
 
   getParams() {
@@ -23,10 +20,10 @@ class Profile extends Component {
   loggedInButtons() {
     return (
       <div className="button-row">
-        <Link to={`/search/${this.state.id}`} >
+        <Link to={`/search/${this.id}`} >
           <button className="btn btn-secondary">Search Spotify</button>
         </Link>
-        <a href={`/users/logout?id=${this.state.id}`} className="btn btn-secondary">Logout</a>
+        <a href={`/users/logout?id=${this.id}`} className="btn btn-secondary">Logout</a>
       </div>
     )
   }
@@ -37,7 +34,7 @@ class Profile extends Component {
         <div className="row mt-5">
           <div className="col-md-10 m-auto">
             <div className="card card-body">
-              <UserInfo className='userinfo' id={this.state.id} />
+              <UserInfo className='userinfo' id={this.id} />
               <this.loggedInButtons />
             </div>
           </div>
