@@ -15,7 +15,7 @@ class SearchServices {
     .then( (response) => {
       this.state.searchResults = response.data;
       console.log("searchResults", this.state.searchResults);
-      done(this.state.userData, null);
+      done(this.state.searchResults, null);
     })
     .catch( (error) => {
       this.state.error  = error;
