@@ -3,9 +3,9 @@ import Axios from 'axios';
 class UserServices {
   constructor(props) {
     this.state = {
-      userData: '',
+      userData: {},
       error: {}
-    }
+    };
     this.getLoggedInUser = this.getLoggedInUser.bind(this);
   };
 
