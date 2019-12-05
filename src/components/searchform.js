@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class SearchForm extends Component {
   render() {
-    const searchURL=`http://localhost:8081/spotify/search?id=${this.props.id}`;
+    const searchURL=`/spotify/search?id=${this.props.id}`;
     console.log(`Search URL: ${searchURL}`);
     return(
       <form action={searchURL} method="POST">
