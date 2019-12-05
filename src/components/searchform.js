@@ -27,8 +27,9 @@ class SearchForm extends Component {
     };
     searchServices.search(params, (searchResults, error) => {
       console.log("Search Results %O", searchResults);
+      this.props.onChangeSearchResults(searchResults);
     });
-};
+  };
 
   render() {
     return(

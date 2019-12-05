@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import SearchForm from '../components/searchform.js';
+import SearchForm from '../components/searchForm.js';
 
 class Search extends Component {
   render() {
-    console.log(`Search: id=${this.props.match.params.id}`);
+    console.log(`Search: id=${this.props.id}`);
     return(
       <div className='search'>
         <div className="row mt-5">
@@ -13,10 +13,10 @@ class Search extends Component {
                 <i className="fas fa-search"></i>
                 {"    Search Spotify"}
               </h1>
-              <SearchForm id={this.props.match.params.id} />
+              <SearchForm id={this.props.id} onChangeSearchResults={this.props.onChangeSearchResults} />
               <div className="button-row">
                 <a className="btn btn-secondary"
-                  href={`/users/logout?id=${this.props.match.params.id}`}
+                  href={`/users/logout?id=${this.props.id}`}
                 >
                   Logout
                 </a>

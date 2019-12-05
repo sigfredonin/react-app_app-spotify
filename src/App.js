@@ -5,7 +5,7 @@ import {
   Switch } from 'react-router-dom';
 import Home from './containers/home.js';
 import Profile from './containers/profile.js';
-import Search from './containers/search.js';
+import SearchFrame from './containers/searchFrame.js';
 import './App.css';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <Route exact path='/home' component={Home} />
         <Route path='/profile/:id' component={Profile} />
-        <Route path='/search/:id' component={Search} />
+        <Route path='/search/:id' component={SearchFrame} />
         <Home />
       </Switch>
     </Router>
