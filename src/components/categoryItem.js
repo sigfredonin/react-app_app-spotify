@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import ItemPicture from './itemPicture';
 
 class CategoryItem extends Component {
   render() {
-    const categoryResults = this.props.items;
+    const type = this.props.type;
+    const item = this.props.item;
     return (
-      <div className='container'>
-          {this.props.type} count: {categoryResults.length}
-      </div>
+      <ul className="list-group list-group-horizontal list-group-flush">
+        <li className="list-group-item narrow-row">
+          <ItemPicture image_url={item.image_url} />
+        </li>
+        <li className="list-group-item narrow-desc">
+          --- list of descriptive attributes for {type} ---
+        </li>
+      </ul>
     )
   }
 }
