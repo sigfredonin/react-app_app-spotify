@@ -31,7 +31,7 @@ class SearchFrame extends Component {
       console.log("Search Results");
       return(
         <div className='container'>
-          <Results results={this.state.search_results} onChangeSearchResults={this.onChangeSearchResults} />
+          <Results id={this.state.id} results={this.state.search_results} onChangeSearchResults={this.onChangeSearchResults} />
         </div>
       )
     }

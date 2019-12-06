@@ -17,7 +17,7 @@ class Results extends Component {
         <h3>Results</h3>
         <p>Search Term: {this.props.results.searchResults.search_term}</p>
         <p>number of results = {Object.keys(this.props.results.searchResults.spotifyResponse).length}</p>
-        <SearchButtons onNewSearch={this.onNewSearch} />
+        <SearchButtons id={this.props.id} onNewSearch={this.onNewSearch} />
       </div>
     )
   }
