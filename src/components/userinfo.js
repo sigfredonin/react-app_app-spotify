@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import defaultImage from '../images/person_wispy_hair.jpg'
+import defaultImage from '../images/person_wispy_hair.jpg';
 import UserServices from '../services/userServices';
 
 const userServices = new UserServices();
