@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import CategoryItem from './categoryItem';
+import Category from './category';
 
 class SearchResults extends Component {
   render() {
     const searchResults = this.props.spotifyResponse;
     return (
       <div className='container'>
-        <CategoryItem type={'artists'} items={searchResults.artists} />
-        <CategoryItem type={'albums'} items={searchResults.albums} />
-        <CategoryItem type={'tracks'} items={searchResults.tracks} />
-        <CategoryItem type={'playlists'} items={searchResults.playlists} />
+        <Category type={'artists'} items={searchResults.artists} />
+        <Category type={'albums'} items={searchResults.albums} />
+        <Category type={'tracks'} items={searchResults.tracks} />
+        <Category type={'playlists'} items={searchResults.playlists} />
       </div>
     )
   }
