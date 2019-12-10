@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch } from 'react-router-dom';
-import Home from './containers/home.js';
-import Profile from './containers/profile.js';
-import SearchFrame from './containers/searchFrame.js';
+import Home from './containers/home';
+import Profile from './containers/profile';
+import SearchFrame from './containers/searchFrame';
 import './App.css';
 
 function App() {
