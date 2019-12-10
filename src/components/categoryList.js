@@ -5,7 +5,12 @@ class CategoryList extends Component {
 
   itemsList(type, items) {
     return items.map(item => {
-      return <CategoryItem type={type} item={item} key={item.id}/>;
+      const itemkey=`${type}-${item.id}`;
+      return (
+        <li className="list-group-item narrow-desc" key={itemkey}>
+          <CategoryItem type={type} item={item} />
+        </li>
+      )
     })
   }
 

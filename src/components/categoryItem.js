@@ -8,10 +8,10 @@ class CategoryItem extends Component {
     const item = this.props.item;
     return (
       <ul className="list-group list-group-horizontal list-group-flush">
-        <li className="list-group-item narrow-row">
+        <li className="list-group-item narrow-row" key="PICTURE">
           <ItemPicture image_url={item.image_url} />
         </li>
-        <li className="list-group-item narrow-desc">
+        <li className="list-group-item narrow-desc" key="DESCRIPTORS">
           <DescriptorList type={type} descriptors={item} />
         </li>
       </ul>
