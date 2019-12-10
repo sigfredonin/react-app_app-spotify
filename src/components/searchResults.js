@@ -5,7 +5,7 @@ class SearchResults extends Component {
   render() {
     const searchResults = this.props.spotifyResponse;
     return (
-      <div className='container'>
+      <div>
         <CategoryList type={'artists'} items={searchResults.artists} />
         <CategoryList type={'albums'} items={searchResults.albums} />
         <CategoryList type={'tracks'} items={searchResults.tracks} />
