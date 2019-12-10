@@ -26,6 +26,9 @@ h3 {
   padding-left: 0.5rem;
   border: 0;
 }
+.result-item-desc {
+  font-size: 0.8rem;
+}
 .item-picture {
   margin: 0;
   padding: 2px;
