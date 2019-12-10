@@ -4,8 +4,11 @@ class SearchButtons extends Component {
   render() {
     return (
       <div className="button-row">
-        <button onClick={this.props.onNewSearch} className="btn btn-secondary">New Search</button>
-        <a href={`/users/logout?id=${this.props.id}`} className="btn btn-secondary">Logout</a>
+        <a className="btn btn-secondary"
+          href={`/users/logout?id=${this.props.id}`}
+        >
+          Logout
+        </a>
       </div>
     )
   }

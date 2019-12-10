@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import ResultsHeading from '../components/resultsHeading';
 import SearchResults from "../components/searchResults";
-import SearchButtons from "../components/searchButtons";
+import ResultsButtons from "../components/resultsButtons";
 
 class Results extends Component {
   constructor(props){
@@ -15,13 +16,10 @@ class Results extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className="text-center mb-3">
-          <i className="fas fa-search"></i>
-          {"    Search Results"}
-        </h1>
+        <ResultsHeading />
         <p><strong>Search Term:</strong> {this.props.results.searchResults.search_term}</p>
         <SearchResults id={this.props.id} spotifyResponse={this.props.results.searchResults.spotifyResponse} />
-        <SearchButtons id={this.props.id} onNewSearch={this.onNewSearch} />
+        <ResultsButtons id={this.props.id} onNewSearch={this.onNewSearch} />
       </div>
     )
   }

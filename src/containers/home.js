@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import HomeButtons from '../components/homeButtons';
+import HomeHeading from '../components/homeHeading';
 
 class Home extends Component {
   render() {
@@ -7,16 +9,9 @@ class Home extends Component {
         <div className="row mt-5">
           <div className="col-md-10 m-auto">
             <div className="card card-body">
-              <h1 className="text-center mb-3">
-                <i className="fas fa-sign-in-alt"></i>
-                  {"    Home"}
-                </h1>
+              <HomeHeading />
               <p>Log in with Spotify to begin searching ...</p>
-              <div className="button-row">
-                <a href="/users/spotify" className="btn btn-secondary">
-                  Login with Spotify
-                </a>
-              </div>
+              <HomeButtons />
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import SearchHeading from '../components/searchHeading.js';
 import SearchForm from '../components/searchForm.js';
+import SearchButtons from '../components/searchButtons.js';
 
 class Search extends Component {
   render() {
@@ -9,18 +11,9 @@ class Search extends Component {
         <div className="row mt-5">
           <div className="col-md-10 m-auto">
             <div className="card card-body">
-              <h1 className="text-center mb-3">
-                <i className="fas fa-search"></i>
-                {"    Search Spotify"}
-              </h1>
+              <SearchHeading />
               <SearchForm id={this.props.id} onChangeSearchResults={this.props.onChangeSearchResults} />
-              <div className="button-row">
-                <a className="btn btn-secondary"
-                  href={`/users/logout?id=${this.props.id}`}
-                >
-                  Logout
-                </a>
-              </div>
+              <SearchButtons id={this.props.id} />
             </div>
           </div>
         </div>
