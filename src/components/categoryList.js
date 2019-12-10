@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CategoryItem from './categoryItem';
 
-class Category extends Component {
+class CategoryList extends Component {
 
   itemsList(type, items) {
     return items.map(item => {
@@ -23,4 +23,4 @@ class Category extends Component {
   }
 }
 
-export default Category;
+export default CategoryList;
