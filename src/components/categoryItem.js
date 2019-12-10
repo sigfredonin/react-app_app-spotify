@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ItemPicture from './itemPicture';
+import DescriptorList from './descriptorList';
 
 class CategoryItem extends Component {
   render() {
@@ -11,7 +12,7 @@ class CategoryItem extends Component {
           <ItemPicture image_url={item.image_url} />
         </li>
         <li className="list-group-item narrow-desc">
-          --- list of descriptive attributes for {type} ---
+          <DescriptorList type={type} descriptors={item} />
         </li>
       </ul>
     )
