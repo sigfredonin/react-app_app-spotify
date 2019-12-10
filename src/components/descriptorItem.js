@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class DescriptorItem extends Component {
 
@@ -11,11 +11,15 @@ class DescriptorItem extends Component {
     if (label !== undefined) {
       if (item === 'artists') {
         return (
-          `${label}: ${descriptor.join(", ")}`
+          <div>
+            <strong>{label}:</strong> {descriptor.join(", ")}
+          </div>
         )
       } else {
         return (
-          `${label}: ${descriptor}`
+          <div>
+            <strong>{label}:</strong> {descriptor}
+          </div>
         )
       }
     }
