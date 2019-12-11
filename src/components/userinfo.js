@@ -18,7 +18,8 @@ class UserInfo extends Component {
         imageURL: defaultImage
       },
       error: null
-    }
+    };
+    this.getError = this.getError.bind(this);
   }
 
   componentDidMount() {
@@ -35,10 +36,22 @@ class UserInfo extends Component {
         this.setState({
           error: error
         });
+        console.log(`Error message: ${error.message}`);
         console.log("Error: error=%O", this.state.error);
       });
     }
   }
+
+  getError() {
+    if (this.state.error) {
+      return (
+        <div>
+          <strong>ERROR: </strong> {this.state.error.message}
+        </div>
+      );
+    }
+    return null;
+  };
     
   render () {
       return(
@@ -60,6 +73,9 @@ class UserInfo extends Component {
               </ul>
             </li>
           </ul>
+          <div className="error-message">
+            {this.getError()}
+          </div>
         </div>
       )
   }
