@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SearchHeading from '../components/searchHeading.js';
-import SearchForm from '../components/searchForm.js';
-import SearchButtons from '../components/searchButtons.js';
+import SearchHeading from '../components/searchHeading';
+import SearchForm from '../components/searchForm';
+import SearchButtons from '../components/searchButtons';
 
 class Search extends Component {
   render() {
