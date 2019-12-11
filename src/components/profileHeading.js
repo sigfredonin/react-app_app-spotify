@@ -5,7 +5,7 @@ class ProfileHeading extends Component {
     return (
       <div>
         <h1 className="text-center mb-3">
-            <i class="far fa-user"></i>
+            <i className="far fa-user"></i>
           {"    Profile"}
         </h1>
       </div>
