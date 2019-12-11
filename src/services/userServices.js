@@ -1,30 +1,20 @@
 import Axios from 'axios';
+import defaultImage from '../images/person_wispy_hair.jpg';
 
 class UserServices {
-  constructor(props) {
-    this.state = {
-      userData: {},
-      error: {}
-    };
-    this.getLoggedInUser = this.getLoggedInUser.bind(this);
-  };
 
-  getLoggedInUser(id, done) {
-    console.log(`getLoggedInUser, id=${id}`);
+  getLoggedInUser(id) {
+    console.log(`getUser, id=${id}`);
     const userDataURL = '/users/info';
-    Axios.get(userDataURL, { params: { id: id }})
-    .then( (response) => {
-      console.log("response", response);
-      this.state.userData = response.data;
-      console.log("userData", this.state.userData);
-      done(this.state.userData, null);
+    return Axios.get(userDataURL, { params: { id: id }})
+    .then( response => {
+      const userData = response.data;
+      if (!userData.imageURL) {
+        userData.imageURL = defaultImage;
+      };
+      return userData;
     })
-    .catch( (error) => {
-      this.state.error  = error;
-      console.log(error);
-      done(null, error);
-    });
-  }
+  };
 }
 
 export default UserServices;

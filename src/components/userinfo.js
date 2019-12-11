@@ -16,23 +16,26 @@ class UserInfo extends Component {
         email: '',
         expires: '',
         imageURL: defaultImage
-      }
+      },
+      error: null
     }
   }
-  
+
   componentDidMount() {
     console.log(`UserInfo: id=${this.state.id}`);
     if (this.state.id) {
-      userServices.getLoggedInUser(this.state.id, (userData, error) => {
-        if (!userData.imageURL) {
-          userData.imageURL = defaultImage;
-        }
-        if (userData) {
-          this.setState({
-            user: userData
-          });
-        }
+      userServices.getLoggedInUser(this.state.id)
+      .then( userData => {
+        this.setState({
+          user: userData
+        });
         console.log("UserInfo: user=%O", this.state.user);
+      })
+      .catch( error => {
+        this.setState({
+          error: error
+        });
+        console.log("Error: error=%O", this.state.error);
       });
     }
   }
