@@ -7,7 +7,8 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search_term: ''
+      search_term: '',
+      error: ''
     };
     this.onChangeSearchTerm = this.onChangeSearchTerm.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,28 +26,51 @@ class SearchForm extends Component {
       userId: this.props.id,
       search_term: this.state.search_term
     };
-    searchServices.search(params, (searchResults, error) => {
+    searchServices.search(params)
+    .then (searchResults => {
       console.log("Search Results %O", searchResults);
       this.props.onChangeSearchResults(searchResults);
+    })
+    .catch (error => {
+      console.log("Search error: %O", error);
+      this.setState({
+        error: error
+      });
     });
+  };
+
+  getError() {
+    if (this.state.error) {
+      return (
+        <div>
+          <strong>ERROR: </strong> {this.state.error.message}
+        </div>
+      );
+    }
+    return null;
   };
 
   render() {
     return(
-      <form onSubmit={this.onSubmit}>
-        <div className="input-group mb-3">
-          <input type="text" className="form-control"
-            placeholder="Artist, album, playlist, or song ..."
-            name="search_term"
-            onChange={this.onChangeSearchTerm}
-            aria-label="Search Spotify for artist, album, playlist, or song"
-            aria-describedby="search_term"
-          />
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="submit">Search</button>
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <div className="input-group mb-3">
+            <input type="text" className="form-control"
+              placeholder="Artist, album, playlist, or song ..."
+              name="search_term"
+              onChange={this.onChangeSearchTerm}
+              aria-label="Search Spotify for artist, album, playlist, or song"
+              aria-describedby="search_term"
+            />
+            <div className="input-group-append">
+              <button className="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
           </div>
+        </form>
+        <div className="error-message">
+          {this.getError()}
         </div>
-      </form>
+      </div>
     )
   }
 }
