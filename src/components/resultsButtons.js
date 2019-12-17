@@ -5,7 +5,7 @@ class ResultsButtons extends Component {
     return (
       <div className="button-row">
         <button onClick={this.props.onNewSearch} className="btn btn-secondary">New Search</button>
-        <a href={`/users/logout?id=${this.props.id}`} className="btn btn-secondary">Logout</a>
+        <a href={"/users/logout"} className="btn btn-secondary">Logout</a>
       </div>
     )
   }

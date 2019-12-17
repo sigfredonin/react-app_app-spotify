@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import defaultImage from '../images/person_wispy_hair.jpg';
 import UserServices from '../services/userServices';
 
@@ -8,7 +9,7 @@ class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.id,
+      id: null,
       user: {
         name: '',
         provider: '',
@@ -23,24 +24,24 @@ class UserInfo extends Component {
   }
 
   componentDidMount() {
-    console.log(`UserInfo: id=${this.state.id}`);
-    if (this.state.id) {
-      userServices.getLoggedInUser(this.state.id)
-      .then( userData => {
-        this.setState({
-          user: userData
-        });
-        console.log("UserInfo: user=%O", this.state.user);
-      })
-      .catch( error => {
+    userServices.getLoggedInUser()
+    .then( userData => {
+      console.log("UserInfo: user=%O", userData);
+      this.setState({
+        user: userData
+      });
+    })
+    .catch( error => {
+      console.log("Error: error=%O", error);
+      if (error.response.status === 401) {
+        this.props.history.push('/'); // User needs to login; go to login page
+      } else {
         this.setState({
           error: error
         });
-        console.log(`Error message: ${error.message}`);
-        console.log("Error: error=%O", this.state.error);
-      });
-    }
-  }
+      };
+    });
+}
 
   getError() {
     if (this.state.error) {
@@ -81,4 +82,4 @@ class UserInfo extends Component {
   }
 }
 
-export default UserInfo;
+export default withRouter(UserInfo);

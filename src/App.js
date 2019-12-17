@@ -12,9 +12,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/home' component={Home} />
-        <Route path='/profile/:id' component={Profile} />
-        <Route path='/search/:id' component={SearchFrame} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/search' component={SearchFrame} />
         <Home />
       </Switch>
     </Router>

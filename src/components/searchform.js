@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import SearchServices from '../services/searchServices';
 
 const searchServices = new SearchServices();
@@ -23,7 +24,6 @@ class SearchForm extends Component {
   onSubmit(event) {
     event.preventDefault();
     const params = {
-      userId: this.props.id,
       search_term: this.state.search_term
     };
     searchServices.search(params)
@@ -33,9 +33,13 @@ class SearchForm extends Component {
     })
     .catch (error => {
       console.log("Search error: %O", error);
-      this.setState({
-        error: error
-      });
+      if (error.response.status === 401) {
+        this.props.history.push('/'); // User needs to login; go to login page
+      } else {
+        this.setState({
+          error: error
+        });
+      };
     });
   };
 
@@ -75,4 +79,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);

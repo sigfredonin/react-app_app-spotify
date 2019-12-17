@@ -3,11 +3,10 @@ import defaultImage from '../images/person_wispy_hair.jpg';
 
 class UserServices {
 
-  getLoggedInUser(id) {
-    console.log(`getUser, id=${id}`);
-    const userDataURL = '/users/info';
-    return Axios.get(userDataURL, { params: { id: id }})
+  getLoggedInUser() {
+    return Axios.get('/users/info')
     .then( response => {
+      console.log(`... response: %O`, response);
       const userData = response.data;
       if (!userData.imageURL) {
         userData.imageURL = defaultImage;
