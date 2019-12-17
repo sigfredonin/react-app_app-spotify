@@ -8,7 +8,7 @@ module.exports = function(app) {
     }
   ));
   app.use(proxy(
-    '/spotify/search',
+    '/spotify',
     {
         target: 'http://localhost:8081'
     }
