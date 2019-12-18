@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import HomeHeading from '../components/homeHeading';
 import HomeButtons from '../components/homeButtons';
+import UserServices from '../services/userServices';
+
+const userServices = new UserServices();
+
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.onLoginClick = this.onLoginClick.bind(this);
+  };
+
+  onLoginClick() {
+    userServices.login();
+  };
+
   render() {
     return(
       <div className='home'>
@@ -11,7 +24,7 @@ class Home extends Component {
             <div className="card card-body">
               <HomeHeading />
               <p>Log in with Spotify to begin searching ...</p>
-              <HomeButtons />
+              <HomeButtons onLoginClick={this.onLoginClick} />
             </div>
           </div>
         </div>
