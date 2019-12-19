@@ -14,12 +14,13 @@ class Results extends Component {
   }
 
   render() {
+    console.log("Results");
     return (
       <div className="container">
         <ResultsHeading />
         <p><strong>Search Term:</strong> {this.props.results.searchResults.search_term}</p>
-        <SearchResults id={this.props.id} spotifyResponse={this.props.results.searchResults.spotifyResponse} />
-        <ResultsButtons id={this.props.id} onNewSearch={this.onNewSearch} />
+        <SearchResults spotifyResponse={this.props.results.searchResults.spotifyResponse} />
+        <ResultsButtons onNewSearch={this.onNewSearch} />
       </div>
     )
   }
