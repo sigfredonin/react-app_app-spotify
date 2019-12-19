@@ -28,8 +28,17 @@ class SearchForm extends Component {
     };
     searchServices.search(params)
     .then (searchResults => {
-      console.log("Search Results %O", searchResults);
-      this.props.onChangeSearchResults(searchResults);
+      console.log("... Results %O", searchResults);
+      if (searchResults.errors && searchResults.errors[0]) {
+        const countErrors = searchResults.errors.length;
+        const message = (countErrors > 1 ? `[1 of ${countErrors}] ` : '')
+         + searchResults.errors[0].msg;
+        this.setState( {
+          error : { message: message }
+        });
+      } else {
+        this.props.onChangeSearchResults(searchResults);
+      }
     })
     .catch (error => {
       console.log("Search error: %O", error);
