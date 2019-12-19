@@ -35,6 +35,7 @@ h3 {
   border: 0;
 }
 .button-row {
+  display: flex;
   padding: 4px;
 }
 .btn-secondary {

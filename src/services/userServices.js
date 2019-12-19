@@ -4,7 +4,23 @@ import defaultImage from '../images/person_wispy_hair.jpg';
 class UserServices {
 
   login() {
-    return Axios.get('/users/spotify')
+    const requestURL = "/users/spotify";
+    console.log(`login: GET ${requestURL}`);
+    return Axios.get(requestURL)
+    .then( response => {
+      console.log(`... response: %O`, response);
+      const userData = response.data;
+      return userData;
+    })
+    .catch( error => {
+      console.log(`... error: %O`, error);
+    })
+  };
+
+  logout() {
+    const requestURL = "/users/logout";
+    console.log(`logout: GET ${requestURL}`);
+    return Axios.get(requestURL)
     .then( response => {
       console.log(`... response: %O`, response);
       const userData = response.data;
@@ -16,7 +32,9 @@ class UserServices {
   };
 
   getLoggedInUser() {
-    return Axios.get('/users/info')
+    const requestURL = "/users/info";
+    console.log(`login: GET ${requestURL}`);
+    return Axios.get(requestURL)
     .then( response => {
       console.log(`... response: %O`, response);
       const userData = response.data;
